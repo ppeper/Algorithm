@@ -17,7 +17,6 @@ class StringSort {
         Arrays.sort(strings,new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                // o1의 알파벳이 더 빠르면 앞으로 정렬
                 if (o1.charAt(n) > o2.charAt(n)) {
                     return 1;
                 }
