@@ -34,7 +34,7 @@ package Programmers.Weekly_Challenge;
 //50점 미만	F
 //학생들의 점수가 담긴 정수형 2차원 배열 scores가 매개변수로 주어집니다. 이때, 학생들의 학점을 구하여 하나의 문자열로 만들어서 return 하도록 solution 함수를 완성해주세요.
 
-class Solution {
+class Week_2 {
     public String solution(int[][] scores) {
         StringBuilder answer = new StringBuilder();
         for (int i = 0; i < scores.length; i++) {
