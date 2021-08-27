@@ -24,17 +24,22 @@ class Week_4 {
         HashMap<Integer, String> valueHM = new HashMap<>();
         // table 나누기
         for (String str : table) {
-            valueHM.put(getResultValue(str, languages, preference),str.split(" ")[0]);
+            int key = getResultValue(str, languages, preference);
+            String value = str.split(" ")[0];
+            // 같은 값이 존재하면 사전순으로 빠른것으로 바꿔준다
+            if (valueHM.containsKey(key)) {
+                String preKey = valueHM.get(key);
+                if (value.compareTo(preKey) < 0) {
+                    valueHM.put(key,value);
+                }
+            } else {
+                valueHM.put(key,value);
+            }
         }
         // answer 구하기
         for (Integer value : valueHM.keySet()) {
             if (value > max) {
                 max = value;
-            } else if (value == max) {
-                // 값이 같으면 사전순으로 빠른것
-                if (valueHM.get(value).compareTo(valueHM.get(max)) < 0) {
-                    max = value;
-                }
             }
         }
         return valueHM.get(max);
@@ -51,13 +56,5 @@ class Week_4 {
             }
         }
         return value;
-    }
-
-    public static void main(String[] args) {
-        String[] table = {"SI JAVA JAVASCRIPT SQL PYTHON C#", "CONTENTS JAVASCRIPT JAVA PYTHON SQL C++", "HARDWARE C C++ PYTHON JAVA JAVASCRIPT", "PORTAL JAVA JAVASCRIPT PYTHON KOTLIN PHP", "GAME C++ C# JAVASCRIPT C JAVA"};
-        String[] lan = {"PYTHON", "C++", "SQL"};
-        int[] pre = {7,5,5};
-        Week_4 w = new Week_4();
-        System.out.print(w.solution(table, lan, pre));
     }
 }
