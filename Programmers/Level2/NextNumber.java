@@ -31,9 +31,4 @@ class NextNumber {
         }
         return count;
     }
-
-    public static void main(String[] args) {
-        NextNumber s = new NextNumber();
-        System.out.println(s.solution(15));
-    }
 }
